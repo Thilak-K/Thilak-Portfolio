@@ -1,0 +1,187 @@
+/* Layout and basic styles */
+.hire-page {
+    display: flex;
+    height: 100vh;
+    background-color: rgb(244, 168, 103);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .hire-left,
+  .hire-right {
+    width: 50%;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hire-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10%;
+  }
+  
+  .hire-heading h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .hire-left p {
+    font-size: 24px;
+    line-height: 1.8;
+    font-weight: 400;
+    max-width: 600px;
+  }
+  
+  .hire-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Form styling */
+  .hire-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-field {
+    width: 80%;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .hire-submit-button,
+  .back-button {
+    padding: 12px 20px;
+    width: 200px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+  }
+  
+  .hire-submit-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .hire-submit-button:hover,
+  .back-button:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+  
+  .checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    appearance: none; /* Remove default checkbox */
+    width: 30px; /* Increase size */
+    height: 30px; /* Increase size */
+    border: 2px solid black; /* Add border */
+    border-radius: 50%; /* Make it a circle */
+    position: relative;
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .checkbox-group input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background-color: black;
+    border-radius: 50%;
+  }
+  
+  
+  /* Email contact styling */
+  .email-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+  }
+  
+  .email-contact h3 {
+    font-weight: 400;
+    font-size: 24px;
+  }
+  
+  .email-contact a {
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .email-contact a:hover {
+    text-decoration: underline;
+  }
+  
+  .email-icon {
+    margin-right: 8px;
+  }
+  /* Common styles for job and freelancing inputs */
+.common-input {
+    width: 80%; 
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Job-specific styles */
+  .job-details input {
+    /* Reusing the common styles */
+    width: 80%; /* Or adjust as needed */
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Freelancing-specific styles */
+  .freelancing-details select,
+  .freelancing-details textarea {
+    /* Reusing the common styles */
+    width: 550px; /* Or adjust as needed */
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  

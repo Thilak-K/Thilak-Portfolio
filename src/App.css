@@ -1,0 +1,58 @@
+/* General Styling for the Application */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Main App Container */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Header Styling */
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  flex-shrink: 0; /* Ensures the header doesn’t shrink */
+}
+
+/* Links in the App */
+.App-link {
+  color: #61dafb;
+}
+
+/* Footer Styling */
+.App-footer {
+  background-color: #333;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: auto; 
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+html{
+  scroll-behavior: smooth;
+}
