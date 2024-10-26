@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  font-family: 'Inter', sans-serif; /* Ensure consistent font throughout */
+}
+
 .home-section {
   background-color: #000;
   color: #fff;
@@ -75,6 +85,80 @@
 .cv-button:hover {
   background-color: whitesmoke;
   color: #000;
+}
+@media (max-width: 1024px) {
+  .home-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .home-intro {
+    width: 80%;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: flex-start;
+  }
+
+  .profile-picture-container {
+    width: 80%;
+    margin-top: 20px;
+  }
+
+  .profile-picture {
+    width: 50%;
+  }
+
+  .cv-button {
+    width: 40%;
+  }
+}
+
+/* For Mobile Devices (below 768px) */
+@media (max-width: 768px) {
+  .home-intro h1 {
+    font-size: 1.5em;
+  }
+
+  .home-intro p {
+    font-size: 1em;
+  }
+
+  .highlighted-name {
+    font-size: 1em;
+  }
+
+  .profile-picture-container {
+    width: 100%;
+  }
+
+  .profile-picture {
+    width: 60%;
+  }
+
+  .cv-button {
+    width: 50%;
+    font-size: 14px;
+  }
+}
+
+/* For Extra Small Devices (below 480px) */
+@media (max-width: 480px) {
+  .home-intro h1 {
+    font-size: 1.2em;
+  }
+
+  .home-intro p {
+    font-size: 0.9em;
+  }
+
+  .profile-picture {
+    width: 50%;
+  }
+
+  .cv-button {
+    width: 60%;
+    font-size: 12px;
+  }
 }
 
 html {
@@ -289,19 +373,22 @@ html {
   font-weight: 500;
 }
 #contact {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
   background-color: rgb(244, 168, 103);
+  padding: 20px;
 }
 
 .contact-container {
   display: flex;
+  flex-direction: row;
   width: 100%;
   max-width: 1200px;
   padding: 0;
+  gap: 20px;
 }
 
 .contact-text, .contact-form {
@@ -311,8 +398,6 @@ html {
 }
 
 .contact-text {
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -328,55 +413,37 @@ html {
 .contact-text p {
   font-size: 22px;
   margin: 0;
-  padding: 0;
   margin-bottom: 30px;
   line-height: 1.6;
   text-align: left;
-
 }
 
 .contact-social-media {
-  margin-bottom: 20px;
   display: flex;
-  flex-direction: row;
+
+  justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 80px;
-}
-
-.contact-social-media a {
-  font-size: 25px;
-  text-decoration: none;
-  color: inherit;
-  display: inline-flex;
-  align-items: center;
-}
-
-.contact-social-media a:hover {
-  text-decoration: underline;
-}
-
-.contact-social-media a svg {
-  margin-right: 5px;
+  margin-top: 50px;
+  font-size: 24px;
+  width: 100%; /* Ensures fluidity */
+ 
 }
 
 .contact-form {
-  margin: 0;
-  padding: 0;
-  margin-top: 100px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 100%;
+  align-items: center;
   margin-left: 50px;
+  width: 100%;
+  height: auto;
 }
 
 .contact-form input, .contact-form textarea {
   width: 90%;
-  font-size: 20px;
   max-width: 600px;
+  font-size: 20px;
   padding: 17px;
   margin: 15px 0;
   border: 1px solid #ccc;
@@ -384,12 +451,14 @@ html {
 }
 
 .contact-form textarea {
-  height: 100px;
+  height: auto;
+  min-height: 100px;
 }
 
 .contact-form-button {
   display: flex;
   gap: 20px;
+  margin-bottom: 20px;
 }
 
 .contact-form-button button {
@@ -402,171 +471,212 @@ html {
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 
-.contact-form-button .send-button {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-}
-
+.contact-form-button .send-button,
 .contact-form-button .schedule-button {
   background-color: white;
   color: black;
   border: 1px solid black;
 }
 
-.contact-form-button .send-button:hover {
+.contact-form-button .send-button:hover,
+.contact-form-button .schedule-button:hover {
   background-color: black;
   color: white;
   border: 1px solid black;
 }
 
-.contact-form-button .schedule-button:hover {
-  background-color: black;
-  color: white;
-}
-.contact-gap{
-  width: 60px;
-  flex-grow: 1;
-}
-.custom-header {
-  background-color: black;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 3px solid white;
-}
-
-.container {
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container.md-flex-row {
-  flex-direction: row;
-}
-
-.title-font {
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  color: rgb(255, 255, 255);
-  margin-bottom: 1rem;
-}
-
-.title-font a {
-  margin-left: 0.75rem;
-  font-size: 1.25rem;
-  color: red;
-  text-decoration: none;
-  position: relative;
-}
-
-.title-font a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
-}
-
-.title-font a:hover::after {
-  background-color: white;
-}
-
-.title-font a:hover {
-  color: red;
-}
-
-.nav {
-  margin-right: auto;
-  margin-left: 1rem;
-  padding-top: 0.25rem;
-  padding-left: 1rem;
-  border-left: 1px solid #4a5568;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-}
-
-.nav a {
-  margin-right: 1.45rem;
-  color: #ffffff;
-  font-size: 17px;
+a {
+  color: black;
   text-decoration: none;
 }
 
-.nav a:hover {
-  color: rgb(253, 232, 205);
+a:hover {
   text-decoration: underline;
 }
 
-.hire-me {
-  display: inline-flex;
-  align-items: center;
-  background-color: green;
-  border: 0;
-  font-weight: 500;
-  padding: 0.55rem 0.85rem;
-  border-radius: 0.375rem;
-  text-decoration: none;
-  color: white;
-  margin-top: 1rem;
+@media (max-width: 400px) {
+  .contact-text h1 {
+    font-size: 25px; /* Reduced font size */
+    margin-bottom: 15px;
+  }
+
+  .contact-text p {
+    font-size: 12px; /* Smaller font size for paragraph */
+    margin-bottom: 15px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 100%; /* Full width to maximize space */
+    font-size: 12px; /* Smaller font for input and textarea */
+    padding: 12px; /* Slightly reduced padding */
+  }
+
+  .contact-form-button {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-form-button button {
+    width: 100%; /* Full width buttons */
+    padding: 12px; /* Adjusted button padding */
+  }
+
+  .contact-social-media {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /* Stack social media icons vertically */
+    font-size: 8px; /* Smaller font size */
+    gap: 10px; /* Reduced gap between icons */
+    width: 100%; /* Full width */
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Reduced gap between text and form */
+  }
 }
 
-.hire-me:hover {
-  background-color: white;
-  color: black;
-  font-weight: 500;
+@media (max-width: 480px) {
+  .contact-text h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .contact-text p {
+    font-size: 14px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .contact-form-button {
+    flex-direction: column;
+  }
+
+  .contact-social-media {
+    flex-direction: column;
+    font-size: 10px;
+    gap: 10px;
+    max-width: 100%; /* Ensures full-width on smaller screens */
+  }
+
+  .contact-form-button button {
+    width: 100%;
+  }
 }
 
-.arrow-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.25rem;
+@media (max-width: 600px) {
+  .contact-text h1 {
+    font-size: 35px;
+    margin-bottom: 25px;
+  }
+
+  .contact-text p {
+    font-size: 15px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 95%;
+    font-size: 15px;
+  }
+
+  .contact-social-media {
+    flex-direction: column;
+    font-size: 10px; /* Reduces size for better spacing */
+    gap: 15px;
+  }
+
+  .contact-form-button button {
+    width: 90%;
+  }
 }
 
-.media-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center; 
-  gap: 10px;
-  margin-right: 10px;
-}
+@media (max-width: 768px) {
+  .contact-text h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
 
-.media-links a {
-  display: flex;
-  align-items: center; 
-  color: white;
-  text-decoration: none;
-}
+  .contact-text p {
+    font-size: 16px;
+  }
 
-.media-links a:hover {
-  color: #05537c; 
-}
-
-.media-links a:nth-child(2):hover {
-  color: #524b4b; 
-}
-
-@media (min-width: 768px) {
-  .container {
+  .contact-social-media {
     flex-direction: row;
+    gap: 20px;
+    font-size: 18px;
   }
 
-  .title-font {
-    margin-bottom: 0;
+  .contact-form input, .contact-form textarea {
+    width: 90%;
+    font-size: 16px;
   }
 
-  .hire-me {
-    margin-top: 0;
+  .contact-form-button {
+    flex-direction: column;
+  }
+
+  .contact-form-button button {
+    width: 80%;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-text h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+  }
+
+  .contact-text p {
+    font-size: 17px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 85%;
+    font-size: 17px;
+  }
+
+  .contact-social-media {
+    flex-direction: row;
+    gap: 20px;
+    font-size: 20px;
+  }
+
+  .contact-form-button button {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-text, .contact-form {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-text h1 {
+    font-size: 50px;
+  }
+
+  .contact-text p {
+    font-size: 18px;
+  }
+
+  .contact-social-media {
+    flex-direction: row;
+    gap: 10px;
+    font-size: 22px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 80%;
+    font-size: 18px;
   }
 }

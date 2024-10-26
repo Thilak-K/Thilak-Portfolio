@@ -1,12 +1,17 @@
-import { ArrowRightIcon } from "@heroicons/react/solid";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import React from "react";
+import Navbar from "./Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import CV from "./PDF/Thilak Raj-Resume.pdf";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram, faTwitter, faWhatsapp, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faTwitter,
+  faWhatsapp,
+  faFacebook,
+} from "@fortawesome/free-brands-svg-icons";
 
 // Skill icons
 import cIcon from "./images/c-icon.png";
@@ -32,6 +37,14 @@ const skills = [
   { name: "MongoDB", image: mongodbIcon },
 ];
 
+// Social media links
+const socialLinks = [
+  { platform: "Instagram", icon: faInstagram, url: "https://www.instagram.com" },
+  { platform: "Twitter", icon: faTwitter, url: "https://www.twitter.com" },
+  { platform: "WhatsApp", icon: faWhatsapp, url: "https://wa.me/qr/MQIJXPRXRQ4WO1" },
+  { platform: "Facebook", icon: faFacebook, url: "https://www.facebook.com" },
+];
+
 const Home = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -44,12 +57,11 @@ const Home = () => {
       message: formData.get("message"),
     };
 
-    // Send the data to the server using axios
     axios
       .post("http://localhost:5000/send-email", data)
       .then((response) => {
-        alert(response.data.message); // Alert the message from the server
-        form.reset(); // Clear the form after submission
+        alert(response.data.message);
+        form.reset();
       })
       .catch((error) => {
         console.error("Error sending email:", error);
@@ -59,57 +71,7 @@ const Home = () => {
 
   return (
     <div>
-      <header className="custom-header">
-        <div className="container md-flex-row">
-          <div className="title-font">
-            <Link to="/profile" className="ml-3 text-xl">
-              K Thilak Raj
-            </Link>
-          </div>
-          <nav className="nav">
-          <a href="#home" className="mr-5">
-  Home
-</a>
-<a href="#experience" className="mr-5 hover:text-white">
-  Experience
-</a>
-<a href="#skills" className="mr-5 hover:text-white">
-  Skills
-</a>
-<a href="#project" className="mr-5 hover:text-white">
-  Projects
-</a>
-<a href="#contact" className="mr-5 hover:text-white">
-  Contact
-</a>
-
-          </nav>
-          <div className="media-links">
-            <a
-              href="https://www.linkedin.com/in/thilakraj-k/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-5"
-            >
-              <FaLinkedin size={25} />
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/Thilak-K"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mr-5"
-            >
-              <FaGithub size={25} />
-              Github
-            </a>
-          </div>
-          <Link to="/hireMe" className="hire-me">
-            Hire Me
-            <ArrowRightIcon className="arrow-icon" />
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Home Section */}
       <section id="home" className="home-section">
@@ -128,7 +90,7 @@ const Home = () => {
           </div>
           <div className="profile-picture-container">
             <img
-              src="path-to-your-profile-picture" // Update with your image path
+              src="path-to-your-profile-picture"
               alt="Profile"
               className="profile-picture"
             />
@@ -183,38 +145,19 @@ const Home = () => {
               I would love to hear from you! Whether you have a question, a
               project idea, or just want to say hello, feel free to reach out.
               I'm always open to discussing new opportunities and connecting
-              with people. Let's get in touch and see how we can collaborate or
-              simply chat!
+              with people.
             </p>
             <div className="contact-social-media">
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faInstagram} /> Instagram
-              </a>
-              <a
-                href="https://www.twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faTwitter} /> Twitter
-              </a>
-              <a
-                href="https://wa.me/qr/MQIJXPRXRQ4WO1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
-              </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faFacebook} /> Facebook
-              </a>
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon icon={link.icon} /> {link.platform}
+                </a>
+              ))}
             </div>
           </div>
           <div className="contact-gap"></div>
