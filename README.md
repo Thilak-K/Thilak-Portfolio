@@ -1,4 +1,4 @@
-AWS https://main.d1dak0m3c7anfc.amplifyapp.com/profile
+AWS https://main.d1dak0m3c7anfc.amplifyapp.com
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
